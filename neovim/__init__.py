@@ -97,8 +97,7 @@ def setup_logging():
     """Setup logging according to environment variables."""
     logger = logging.getLogger(__name__)
     if 'NVIM_PYTHON_LOG_FILE' in os.environ:
-        logfile = (os.environ['NVIM_PYTHON_LOG_FILE'].strip() +
-                   '_' + str(os.getpid()))
+        logfile = os.environ['NVIM_PYTHON_LOG_FILE'].strip()
         handler = logging.FileHandler(logfile, 'w')
         handler.formatter = logging.Formatter(
             '%(asctime)s [%(levelname)s @ '
